@@ -1,18 +1,35 @@
 // build your `/api/resources` router here
 const router = require("express").Router(); //instantiate the router
-const Resource = require('./model')
+const Resource = require("./model");
+const md = require("./middleware");
 
-router.get('/:resource_id', (req, res, next) => {
-    Resource.getResourceById(req.params.resource_id)
-    .then(rs => {
-        res.status(200).json(rs)
-    })
-    .catch(next)
-})
+router.get("/", async (req, res, next) => {
+  try {
+    const resources = await Resource.getAll();
+    res.json(resources);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post(
+  "/",
+  md.checkResourceId,
+  md.checkResourceNameUnique,
+  async (req, res, next) => {
+    try {
+      const newResource = await Resource.createResource(req.body);
+      res.status(201).json(newResource);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 
 router.use((err, req, res, next) => {
   res.status(500).json({
-    customMessage: "something went wrong with recipes router",
+    customMessage: "something went wrong with resources router",
     message: err.message,
     stack: err.stack,
   });
