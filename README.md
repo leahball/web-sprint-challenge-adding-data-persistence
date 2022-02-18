@@ -2,7 +2,8 @@
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
+This challenge allows you to practice the 
+concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
 
 This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers a few days after the challenge submission. For more information on the review process [click here.](https://www.notion.so/bloomtech/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 
@@ -21,13 +22,13 @@ In this project you will be given a set of requirements and must design a databa
 
 ### Files to Complete
 
-1. `package.json`
-2. `index.js`
-3. `api/server.js`
-4. `model.js` inside `api/project`, `api/resource` and `api/task`
-5. `router.js` inside `api/project`, `api/resource` and `api/task`
-6. migration file(s)
-7. seed file(s) **optional**
+- [X] 1. `package.json`
+- [X] 2. `index.js`
+- [X] 3. `api/server.js`
+- [X] 4. `model.js` inside `api/project`, `api/resource` and `api/task`
+- [X] 5. `router.js` inside `api/project`, `api/resource` and `api/task`
+- [ ] 6. migration file(s)
+- [ ] 7. seed file(s) **optional**
 
 ### Required Dependencies
 
