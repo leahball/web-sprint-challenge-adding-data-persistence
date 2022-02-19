@@ -1,7 +1,6 @@
 // build your `/api/resources` router here
 const router = require("express").Router(); //instantiate the router
 const Resource = require("./model");
-const md = require("./middleware");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -14,8 +13,6 @@ router.get("/", async (req, res, next) => {
 
 router.post(
   "/",
-  // md.checkResourceId,
-  // md.checkResourceNameUnique,
   async (req, res, next) => {
     try {
       const newResource = await Resource.createResource(req.body);
