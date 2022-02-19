@@ -5,8 +5,8 @@ const getAll = () => {
   return db("resources");
 };
 
-const getById = (resource_id) => {
-  return db("resources").where("resource_id", resource_id).first();
+const getById = (id) => {
+  return db("resources").where("resource_id", id).first();
 };
 
 const createResource = async (resource) => {

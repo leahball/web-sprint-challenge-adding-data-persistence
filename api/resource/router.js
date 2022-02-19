@@ -14,8 +14,8 @@ router.get("/", async (req, res, next) => {
 
 router.post(
   "/",
-  md.checkResourceId,
-  md.checkResourceNameUnique,
+  // md.checkResourceId,
+  // md.checkResourceNameUnique,
   async (req, res, next) => {
     try {
       const newResource = await Resource.createResource(req.body);
@@ -25,7 +25,6 @@ router.post(
     }
   }
 );
-
 
 router.use((err, req, res, next) => {
   res.status(500).json({

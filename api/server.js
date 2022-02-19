@@ -3,10 +3,12 @@ const express = require("express");
 const projectRouter = require("./project/router");
 const resourceRouter = require("./resource/router");
 const taskRouter = require("./task/router");
+const cors = require("cors");
 
 const server = express(); //instantiate the server by invoking express
 
 server.use(express.json()); //teach server to parse JSON
+server.use(cors());
 
 server.use("/api/projects", projectRouter);
 server.use("/api/resources", resourceRouter);
