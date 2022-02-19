@@ -1,9 +1,28 @@
 // build your `Task` model here
 const db = require("../../data/dbConfig");
 
-async function getTaskById(task_id) {
-  const taskRows = await db("tasks as t").where("task_id", task_id);
-  return taskRows;
+async function getAllTasks() {
+  let tasks = await db("tasks");
+  tasks.forEach((task) => {
+    task.task_completed === 0 || !task.task_completed
+      ? (task.task_completed = false)
+      : (task.task_completed = true);
+  });
+  return tasks;
 }
 
-module.exports = { getTaskById };
+async function getTaskById(id) {
+  let task = await db("tasks").where("task_id", id).first();
+  task.task_completed === 0 || !task.task_completed
+    ? (task.task_completed = false)
+    : (task.task_completed = true);
+  return task;
+}
+
+async function createTask(task) {
+  const [task_id] = await db("tasks").insert(task);
+  return getTaskById(task_id);
+}
+
+module.exports = { getAllTasks, getTaskById, createTask };
+

@@ -23,7 +23,7 @@ router.post("/", async (req, res, next) => {
 
 router.use((err, req, res, next) => {
   res.status(500).json({
-    customMessage: "something went wrong with recipes router",
+    customMessage: "something went wrong with projects router",
     message: err.message,
     stack: err.stack,
   });
